@@ -18,3 +18,9 @@
 - [x] Match the specified home labels and footer maroon accents to the journey-link color.
 - [x] Verify images, colors, and navigation.
 - [x] Render the client-review rating stars in gold.
+
+## Founder photo and content animation corrections
+
+- [ ] Replace the founder portrait with the supplied photo.
+- [ ] Restore content visibility and reliable left-to-right headlines with varied motion across pages.
+- [ ] Verify all pages, reduced-motion behavior, and unchanged index.html.
