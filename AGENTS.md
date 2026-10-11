@@ -17,3 +17,4 @@
 - Retain the root index.html byte-for-byte as supplied while TanStack routes run the website; the supported runtime does not use a legacy HTML entry point.
 - Resolve page, logo, and font assets directly to absolute public CDN URLs from the imported asset manifest; external hosts do not provide Lovable-relative proxies or the app's media redirects.
 - Build with Nitro preset "netlify" and renderer disabled for external hosting; otherwise Nitro serves the legacy root index.html as every page and the site is blank.
+- Keep scroll entrances in the shared website-motion enhancement with content visible by default and late-mounted elements observed; animation registration must never determine content availability.

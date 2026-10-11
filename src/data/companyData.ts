@@ -1,4 +1,5 @@
 import { mediaUrl } from "../lib/original-media";
+import founderPhoto from "../assets/people/founder-krunal-adhvaryu.jpg.asset.json";
 import clearPlasticJewelleryBoxImg from "../assets/images/clear_plastic_jewellery_box_1791635813207.jpg";
 import plasticJewelleryBoxesImg from "../assets/images/plastic_jewellery_boxes_1791634518079.jpg";
 import jewelleryStorageImg from "../assets/images/jewellery_storage_cases_1791632414152.jpg";
@@ -16,7 +17,7 @@ const haasVmcImg = imageUrl("haas_vmc_machining_1791344829999.jpg");
 const cadProductDesignImg = imageUrl("cad_product_design_1791344841891.jpg");
 const injectionFacilityImg = imageUrl("injection_molding_facility_1791344853234.jpg");
 const reviewsFactoryWideImg = imageUrl("reviews_factory_wide_1791344867162.jpg");
-const founderPortraitImg = imageUrl("founder_portrait_1791344880828.jpg");
+const founderPortraitImg = new URL(founderPhoto.url, "https://id-preview--9e354313-ae47-4403-b758-f9692319c6cc.lovable.app").href;
 const thinWallPackagingImg = imageUrl("thin_wall_packaging_1791344893213.jpg");
 const jewelleryBoxesImg = imageUrl("jewellery_boxes_1791344906090.jpg");
 const plasticPartsCustomImg = imageUrl("plastic_parts_custom_1791344922773.jpg");

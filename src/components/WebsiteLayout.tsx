@@ -6,6 +6,7 @@ import { Footer } from "../components/Footer";
 import { QuoteModal } from "../components/QuoteModal";
 import { WhatsAppFloatingButton } from "../components/WhatsAppIcon";
 import { SEOHead } from "../components/SEOHead";
+import { installWebsiteMotion } from "../lib/website-motion";
 
 export const WebsiteLayout: React.FC = () => {
   const navigate = useNavigate();
@@ -59,59 +60,11 @@ export const WebsiteLayout: React.FC = () => {
     });
   }, []);
 
-  // Smooth IntersectionObserver for elegant scroll-reveal animations across all pages
+  // Enhance visible content instead of hiding it until a timed registration succeeds.
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.06,
-        rootMargin: "0px 0px 60px 0px",
-      },
-    );
-
-    // Initial check and observer registration
-    const registerElements = () => {
-      const elements = document.querySelectorAll(
-        ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale, .heading-scroll-reveal, .box-scroll-reveal, .section-heading-ltr, .heading-ltr, .section-line-expand",
-      );
-      const windowHeight = window.innerHeight || 800;
-      elements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= windowHeight * 0.9) {
-          requestAnimationFrame(() => {
-            el.classList.add("is-visible");
-          });
-        } else {
-          observer.observe(el);
-        }
-      });
-    };
-
-    registerElements();
-    const t1 = setTimeout(registerElements, 50);
-    const t2 = setTimeout(registerElements, 200);
-
-    // Safety fallback: ensure all content becomes visible so nothing is ever missed
-    const safetyTimer = setTimeout(() => {
-      const elements = document.querySelectorAll(
-        ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale, .heading-scroll-reveal, .box-scroll-reveal, .section-heading-ltr, .heading-ltr, .section-line-expand",
-      );
-      elements.forEach((el) => el.classList.add("is-visible"));
-    }, 1500);
-
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(safetyTimer);
-      observer.disconnect();
-    };
+    const main = document.querySelector("main");
+    if (!(main instanceof HTMLElement)) return;
+    return installWebsiteMotion(main);
   }, [currentPage, pathname]);
 
   const handleNavigate = (page: PageId) => {
