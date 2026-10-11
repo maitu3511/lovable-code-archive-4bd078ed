@@ -37,7 +37,7 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
-    defaultOnCatch: (err: Error) => {
+    defaultOnCatch: (err: unknown) => {
       if (typeof window !== "undefined" && isChunkError(err)) reloadOnce();
     },
   });
