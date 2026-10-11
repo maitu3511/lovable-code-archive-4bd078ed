@@ -786,3 +786,48 @@ button:not(:disabled):active {
 .animate-float-subtle {
   animation: floatSubtle 3.5s ease-in-out infinite;
 }
+
+/* Content-first motion: no section depends on JavaScript to become readable.
+   Entrances are applied once on intersection by website-motion, including late-mounted tabs. */
+.scroll-reveal,
+.scroll-reveal-left,
+.scroll-reveal-right,
+.scroll-reveal-scale,
+.box-scroll-reveal,
+.heading-scroll-reveal h2,
+.heading-scroll-reveal .section-heading-ltr,
+.section-heading-ltr,
+.heading-ltr,
+.heading-scroll-reveal span,
+.heading-scroll-reveal p,
+.section-line-expand {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  will-change: auto;
+}
+
+.animate-heading-side {
+  animation-duration: 0.85s;
+}
+
+.animate-hero-video-zoom {
+  animation-duration: 24s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .img-zoom-hover:hover,
+  .card-hover-elevate:hover,
+  .btn-magnetic:hover,
+  button:not(:disabled):active {
+    transform: none;
+  }
+}
