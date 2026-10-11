@@ -27,6 +27,6 @@
 
 ## Stronger website animations
 
-- [ ] Make main and section headline entrances clearly move left to right after the page opens.
-- [ ] Add staggered card entrances, image zoom reveals, and supporting text motion without hiding content.
-- [ ] Verify motion, page navigation, and reduced-motion behavior.
+- [x] Make main and section headline entrances clearly move left to right after the page opens.
+- [x] Add staggered card entrances, image zoom reveals, and supporting text motion without hiding content.
+- [x] Verify motion, page navigation, and reduced-motion behavior.
