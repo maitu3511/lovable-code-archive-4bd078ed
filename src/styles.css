@@ -812,10 +812,41 @@ button:not(:disabled):active {
 }
 
 /* Headline entrances start when the page is actually visible, not during SSR loading. */
-main h1.animate-heading-side,
 main h2.animate-heading-side,
 main h3.animate-heading-side {
   animation: none;
+}
+
+/* Page headline slides in left-to-right from first paint (CSS only, always ends visible). */
+@keyframes page-headline-ltr {
+  from {
+    opacity: 0;
+    transform: translateX(-120px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+main h1 {
+  animation: page-headline-ltr 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main h1 {
+    animation-name: page-headline-fade;
+    animation-duration: 0.7s;
+  }
+}
+
+@keyframes page-headline-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .animate-hero-video-zoom {

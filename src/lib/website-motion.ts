@@ -1,5 +1,5 @@
 const revealSelector =
-  ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale, .heading-scroll-reveal, .box-scroll-reveal, .section-heading-ltr, .heading-ltr, .section-line-expand, h1, h2, h3, .heading-scroll-reveal > span, .heading-scroll-reveal > p, section img:not(.animate-hero-video-zoom)";
+  ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale, .heading-scroll-reveal, .box-scroll-reveal, .section-heading-ltr, .heading-ltr, .section-line-expand, h2, h3, .heading-scroll-reveal > span, .heading-scroll-reveal > p, section img:not(.animate-hero-video-zoom)";
 
 /** Progressive enhancement: content stays readable even without observers or animation APIs. */
 export function installWebsiteMotion(root: HTMLElement): () => void {
@@ -15,7 +15,7 @@ export function installWebsiteMotion(root: HTMLElement): () => void {
     // Animate individual items, not entire sections with independently animated children.
     if (element.matches("section, .heading-scroll-reveal")) return;
 
-    const isHeadline = element.matches("h1, h2, .section-heading-ltr, .heading-ltr");
+    const isHeadline = element.matches("h2, .section-heading-ltr, .heading-ltr");
     let from: Keyframe = { opacity: 0, transform: "translateY(40px)" };
     let delay = 0;
     if (isHeadline) {
