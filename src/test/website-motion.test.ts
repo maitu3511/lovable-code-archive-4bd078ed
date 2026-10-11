@@ -25,17 +25,22 @@ describe("Website content enhancement", () => {
     expect(disconnect).toHaveBeenCalledOnce();
   });
 
-  it("does not start scroll animations when reduced motion is requested", () => {
-    const observer = vi.fn();
-    vi.stubGlobal("IntersectionObserver", observer);
+  it("still animates with a gentle fade when reduced motion is requested", () => {
+    const observe = vi.fn();
+    vi.stubGlobal("IntersectionObserver", class {
+      observe = observe;
+      disconnect = vi.fn();
+    });
     vi.spyOn(window, "matchMedia").mockReturnValue({
       matches: true,
       addEventListener: vi.fn(),
       removeEventListener: vi.fn(),
     } as unknown as MediaQueryList);
     const root = document.createElement("main");
+    const heading = document.createElement("h1");
+    root.append(heading);
     const cleanup = installWebsiteMotion(root);
-    expect(observer).not.toHaveBeenCalled();
+    expect(observe).toHaveBeenCalledWith(heading);
     cleanup();
     vi.restoreAllMocks();
   });
