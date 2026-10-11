@@ -811,6 +811,13 @@ button:not(:disabled):active {
   animation-duration: 0.85s;
 }
 
+/* Headline entrances start when the page is actually visible, not during SSR loading. */
+main h1.animate-heading-side,
+main h2.animate-heading-side,
+main h3.animate-heading-side {
+  animation: none;
+}
+
 .animate-hero-video-zoom {
   animation-duration: 24s;
 }

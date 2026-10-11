@@ -24,3 +24,9 @@
 - [x] Replace the founder portrait with the supplied photo.
 - [x] Restore content visibility and reliable left-to-right headlines with varied motion across pages.
 - [x] Verify all pages, reduced-motion behavior, and unchanged index.html.
+
+## Stronger website animations
+
+- [ ] Make main and section headline entrances clearly move left to right after the page opens.
+- [ ] Add staggered card entrances, image zoom reveals, and supporting text motion without hiding content.
+- [ ] Verify motion, page navigation, and reduced-motion behavior.
